@@ -1,1 +1,1 @@
-alert("asdfasdf")
+console.log("asdfasdf")
