@@ -1,0 +1,197 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=dynamic-data&theme=dark&code=MYewdgzgLgBMCGUCmBzEAnAlkiMC8MAFAGYCuYwUm4RAlDAN4BQMMANkrGCAO74xgkfACKIkhWgG4W7TjHQ5-AbQC601h1gcw_AIwAGdTB4ALTByLaAtFfrNWrBRAB05CGeJRC3Hs6ggAGRAEDgAVTABbJABlKCwwFAlnBQAHNnhgcQB6AD0AHWEAKiyAGhgAcnLaKRlWH35BETFCAGp6qxgAJn0emtYAXxkFKFJ0HSdpftoJaVBIWARkNCwcTv4SckpqHQlGGU15RQJVIwPtPUMZU3MkSyQwGztaw5cU0ndCAxgO847dPpgg0cnFG4xwk2mNTm0BgABNEPB1mQKFQaLt7LJYE5lGp9nJzgQDEZrhZCNZbHsHC9nG8PgBZRAmZIgciwwgMqBM9DwMCwkARXaFGAGXoAoGHEZjF4QmZMaGweFQeBrAgbFHbOiUzEvHGnfH3fiXVgk25kg0AHmF-ieVKcNPeJla7MZyR5fIF9CFXxaMAArLQ_CAAGKYAAeSDZ_wBGnuLRaRnFw1B0qYU1lIBSqJ0BAxVCgHAAXFrWMhQ1Ai-VhABPMDwCKYYAwURK8oyfolGT-EBsKgpIsYktYFAoJDoCvwUOYCDlDtUidTgAKIEwYGQY-LDigVZSSArwHQIAg09nVPY8AARkg2P3nlTzxkANYoA-sgDC3YwFYAxJ0ABwAZnPX0ADZW1PQFnnFds8RHXl-wgK8kEoCMbypLIshgQBIBMAWjlykAb59AHQlXQwIcSsazrBsYAAIXgdByiLYh4DYBCT1YdCYEAWDkcPwgjOhI1gyNretGwCFckHomA4lIJBU2gksQG7c8QFDVCHHcXgiykpBWJgYgkEQUZdw3VhFXgAA1bAeH7Q54FhAB5MA2CrBimIQwEdOBaAMCMhg5NPCB4AANyQABBCAAEkIngEd-3FAY2xPUyAC0FIiVTWHUqzdNc7TnmgWjyxgfQdPuWEixFBKZFDELJwgIslGeAdN23IzykWVAMCrGdbxgJTWVoqsAHF4D7ST0Gkjy4QRIt2uWbAIEgnSmpLFq9zEZYusmvreQG4bRq0ybTJm9aMHmzpIJkFQTyrGqp3qxqeq3HcK0CpjpO68CIBCIyDp6oTWoXLBMg-08opUq1ip6-swCLSHwO2-F0CGkb6v0ZxOjKNHOhURaHvAp7WpBqkvqYn7xty8D_orInWB6nqEd2lGYCULHMfRnGqXFK6ZAQlY6uZvHTypipqyEyiaLoyaCYre9JZ66ravC3kkHB3RJpuxXldVw7pqmpVcapZaBDrVrRYokSxJplbnoqNhLZ1pUi1M87Ocu1NpBGlJnFAchYEJXRpAQqAlbXV62DVLY0RtbV5wgZtEQIRom2aAN_CCb7wiiWJ4kSANUnSTJCFyApijKSoAVM5x3EwTxZRMhF7XpF0X15Z1OVdXl-UFCHrQrhFOirjwvD7pUB9pR0Wjbrk3S7z0rRgH1_UDENw0jaojFm06cEHmvh43k6-cbx1Y_jgFN75gfq9rs-D7Oo_CE972WVXOMAQiKtXxMAqq84OzM22QgTUFZ3QFuBI29dHZwFvjgHqflDY9QgfAY6Swt4QBdqeOKMBubE1HPNe6YCEF6yQUQ2Bk1wFEKdv3WBzwOaAhqO2LoIopBAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div style="position: absolute; width: 450px; height: 230px; z-index: 2; left: 0px; top: 0px" id="container">	</div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, 'dark', {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    const categories = (function () {
+  let now = new Date();
+  let res = [];
+  let len = 10;
+  while (len--) {
+    res.unshift(now.toLocaleTimeString().replace(/^\D*/, ''));
+    now = new Date(+now - 2000);
+  }
+  return res;
+})();
+const categories2 = (function () {
+  let res = [];
+  let len = 10;
+  while (len--) {
+    res.push(10 - len - 1);
+  }
+  return res;
+})();
+const data = (function () {
+  let res = [];
+  let len = 10;
+  while (len--) {
+    res.push((90+(Math.random() *10)).toFixed(1));
+  }
+  return res;
+})();
+const data2 = (function () {
+  let res = [];
+  let len = 0;
+  while (len < 10) {
+    res.push((90+(Math.random() *10)).toFixed(1));
+    len++;
+  }
+  return res;
+})();
+option = {
+  backgroundColor: '#191D34',
+  title: {
+    text: ''
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      label: {
+        backgroundColor: '#283b56'
+      }
+    }
+  },
+  legend: {selected: {
+    // 选中'系列1'
+    'Dynamic Bar': false,
+    // 不选中'系列2'
+    'Dynamic Line': true
+}},
+  toolbox: {
+    show: false,
+    feature: {
+      dataView: { readOnly: false },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+  dataZoom: {
+    show: false,
+    start: 0,
+    end: 100
+  },
+  xAxis: [
+    {
+      type: 'category',
+      boundaryGap: true,
+      data: categories
+    },
+    {
+      type: 'category',
+      boundaryGap: true,
+      data: categories2
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      scale: true,
+      name: '',
+      max: 100,
+      min: 0,
+      boundaryGap: [0.2, 0.2]
+    },
+    {
+      type: '',
+      scale: true,
+      name: '',
+     
+      
+      boundaryGap: [0.2, 0.2]
+    }
+  ],
+  series: [
+    {
+      name: 'Dynamic Bar',
+      type: 'bar',
+      xAxisIndex: 1,
+      yAxisIndex: 1,
+      data: data
+    },
+    {
+      name: 'Dynamic Line',
+      type: 'line',
+      data: data2
+    }
+  ]
+};
+app.count = 11;
+setInterval(function () {
+  let axisData = new Date().toLocaleTimeString().replace(/^\D*/, '');
+  data.shift();
+  data.push(Math.round(Math.random() * 1000));
+  data2.shift();
+
+
+
+  data2.push((90+(Math.random() *10)).toFixed(1));
+  categories.shift();
+  categories.push(axisData);
+  categories2.shift();
+  categories2.push(app.count++);
+  myChart.setOption({
+    xAxis: [
+      {
+        data: categories
+      },
+      {
+        data: categories2
+      }
+    ],
+    series: [
+      {
+        data: data
+      },
+      {
+        data: data2
+      }
+    ]
+  });
+}, 2100);
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
