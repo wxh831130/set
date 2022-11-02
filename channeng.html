@@ -8,11 +8,11 @@
 			}
 		#Layer1 {
 	position:absolute;
-	width:510px;
-	height:228px;
+	width:100%;
+	height:100%;
 	z-index:3;
-	left: 292px;
-	top: 380px;
+	left: 0px;
+	top: 0px;
 	background-color: #99FF33;
 }
         </style>
@@ -23,7 +23,7 @@
 		<script src="https://raw.githack.com/wxh831130/set/main/js/core.js"></script>
 
 	
-			<div style="position: absolute; width: 450px; height: 230px; z-index: 2; left: 0px; top: 0px" id="container01">	</div>
+			<div style="position: absolute; width: 100%; height: 100%; z-index: 2; left: 0px; top: 0px" id="container01">	</div>
 			<!-- <div style="position: absolute; width: 500px; height: 260px; z-index: 2; left: 562px; top:0px" id="container02"> </div>
 			<div style="position: absolute; width: 500px; height: 260px; z-index: 2; left: 1118px; top:0px" id="container03"> </div> -->
 	
@@ -66,54 +66,30 @@
 <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/extension/bmap.min.js"></script>
 -->
 			
-			<script type="text/javascript">
+			<!-- <script type="text/javascript">
 				var dom = document.getElementById('container01');
 				var myChart02 = echarts.init(dom, 'dark', {
 					renderer: 'canvas',
 					useDirtyRect: false
 				});
-				var app = {};
+				 -->
+				
+				
+			</script>
+			<script type="text/javascript">
+				var dom = document.getElementById('container01');
+				var myChart03 = echarts.init(dom, 'dark', {
+					renderer: 'canvas',
+					useDirtyRect: false
+				});
+
+                var app = {};
 				var option;
 				const data = [];
 				for (let i = 0; i <5; ++i) {
 					data.push(Math.round(Math.random() * 200));
 				}
-				option = {
-					title: {
-						text: '厂区实时产能能(Kpcs)(前3)'
-					},
-					xAxis: {
-						max: 'dataMax'
-					},
-					yAxis: {
-						type: 'category',
-						data: ['龙华', '观澜', '武汉', '晋城', '郑州'],
-						inverse: true,
-						animationDuration: 300,
-						animationDurationUpdate: 300,
-						max: 2 // only the largest 3 bars will be displayed
-					},
-					series: [
-						{
-							realtimeSort: true,
-							name: 'X',
-							type: 'bar',
-							data: data,
-							label: {
-								show: true,
-								position: 'right',
-								valueAnimation: true
-							}
-						}
-					],
-					legend: {
-						show: true
-					},
-					animationDuration: 0,
-					animationDurationUpdate: 3000,
-					animationEasing: 'linear',
-					animationEasingUpdate: 'linear'
-				};
+				
 				function run() {
 					for (var i = 0; i < data.length; ++i) {
 						if (Math.random() > 0.9) {
@@ -122,14 +98,7 @@
 							data[i] += Math.round(Math.random() * 200);
 						}
 					}
-					myChart02.setOption({
-						series: [
-							{
-								type: 'bar',
-								data
-							}
-						]
-					});
+					
 					myChart03.setOption({
 						series: [
 							{
@@ -145,19 +114,7 @@
 				setInterval(function () {
 					run();
 				}, 1000);
-				if (option && typeof option === 'object') {
-					myChart03.setOption(option);
-				}
-				window.addEventListener('resize', myChart02.resize);
-			</script>
-			<script type="text/javascript">
-				var dom = document.getElementById('container01');
-				var myChart03 = echarts.init(dom, 'dark', {
-					renderer: 'canvas',
-					useDirtyRect: false
-				});
-				var app = {};
-				var option;
+				
 				option = {
                     backgroundColor: '#191D34',
 					title: {
