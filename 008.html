@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+  <script type="text/javascript">  
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, 'dark', {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    var data1=[];
+     var data2=[];
+     var data3=[];    
+    var option; 
+  setInterval(() => {
+    var data1=[];
+     var data2=[];
+     var data3=[];
+     option = {
+      backgroundColor: '#191D34',
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      crossStyle: {
+        color: '#999'
+      }
+    }
+  },
+  toolbox: {
+    feature: {
+      dataView: { show: false, readOnly: false },
+      magicType: { show: false, type: ['line', 'bar'] },
+      restore: { show: false},
+      saveAsImage: { show: true }
+    }
+  },
+  legend: {
+    data: ['Data001', 'Data002', 'Data003']
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: ['ND051A', 'ND0531A', 'ND0532A', 'ND056A', 'ND071A', 'ND050A', 'ND053A'],
+      axisPointer: {
+        type: 'shadow'
+      }
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      name: '',
+      min: 0,
+      max: 2500,
+      interval: 250,
+      axisLabel: {
+        formatter: '{value} '
+      }
+    },
+    {
+      type: 'value',
+      name: '',
+      min: 0,
+      max: 100,
+      interval: 10,
+      axisLabel: {
+        formatter: '{value} %'
+      }
+    }
+  ],
+  series: [
+    {
+      name: 'Data001',
+      type: 'bar',
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' ml';
+        }
+      },
+      data: data1
+    },
+    {
+      name: 'Data002',
+      type: 'bar',
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' ml';
+        }
+      },
+      data: data2
+    },
+    {
+      name: 'Data003',
+      type: 'line',
+      yAxisIndex: 1,
+      tooltip: {
+        valueFormatter: function (value) {
+          return value + ' %';
+        }
+      },
+      data: data3
+    }
+  ]
+};
+    for (let i = 0; i <7; ++i) {
+      let rn=Math.random()
+      let rn1=rn* 2000;
+      let rn2=rn * 300*Math.random();
+      
+        data1.push(rn1);
+        data2.push(rn1-rn2);
+        data3.push((rn1-rn2)*100/rn1);
+      }
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    
+  }, 1000);      
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
